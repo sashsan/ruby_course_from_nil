@@ -4,10 +4,10 @@ class Item
 
   @@discount = 0.1
 
-  def initialize(options = {})
+  def initialize(name, options = {})
     @real_price = options[:price]
-    @name  = options[:name]
     @price = options[:price]
+    @name = name
   end
 
   def info

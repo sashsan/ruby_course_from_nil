@@ -11,30 +11,10 @@ require 'active_support/core_ext'
 
 @items = []
 
-@items << VirtualItem.new({
-            price:  240,
-            weight: 200,
-            name: 'virt'
-            })
-
-@items << AntiqueItem.new({
-            price:  240,
-            weight: 200,
-            name: 'ant'
-        })
-
-@items << RealItem.new({
-            price:  270,
-            weight: 300,
-            name: 'car'
-           })
-
-@items << RealItem.new({
-            price:  250,
-            weight: 310,
-            name: 'bike'
-           })
-
+@items << VirtualItem.new('virt', price: 260, weight: 200)
+@items << AntiqueItem.new('ant',  price: 240, weight: 200)
+@items << RealItem.new(name: 'real', price: 230, weight: 200)
+@items << RealItem.new(name: 'real', price: 220, weight: 200)
 
 cart = Cart.new('amg')
 cart.add_item(RealItem.new({
@@ -53,14 +33,8 @@ cart.add_item(RealItem.new({
                name: 'bike'
            }))
 
-p cart.kind_of? Cart
-p @items.first.kind_of? Item
-p @items.first.respond_to? :price
 
-p @items.first.send :tax
-p @items.first.tax
-
-
+p cart.send :all_cars
 
 
 
