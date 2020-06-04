@@ -1,0 +1,1 @@
+class AntiqueItem < Item; end
