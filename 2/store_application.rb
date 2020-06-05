@@ -19,6 +19,7 @@ class StoreApplication
         require 'pony'
       end
       @store ||= self
+      @store.freeze
     end
 
     def admin(&block)
@@ -35,6 +36,7 @@ class StoreApplication
           yield(self)
         end
         @store ||= self
+        @store.freeze
       end
     end
   end

@@ -11,6 +11,11 @@ StoreApplication.set do |app|
   end
 end
 
+unless StoreApplication.frozen?
+  StoreApplication.name = 'New name'
+  StoreApplication::Admin.email = 'new@admin.com'
+end
+
 @items = []
 
 @items << VirtualItem.new('virt', price: 260, weight: 200)
