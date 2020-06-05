@@ -31,8 +31,10 @@ cart.add_item(RealItem.new({price:  270,weight: 300,name: 'bike'}))
 p cart.send :all_cars
 
 order = Order.new
-@items.each {|i| order.add_item i }
 order.place
+
+p order.placed_at.strftime('%b %-d')
+p order.end_sending
 
 
 

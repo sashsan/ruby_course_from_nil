@@ -23,7 +23,8 @@ module ItemContainer
     end
 
     def validate
-      @items.each do |i|
+      @items.each do |i|+0300
+
         puts 'Item has no price' if i.price.nil?
       end
     end
