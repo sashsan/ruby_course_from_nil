@@ -5,7 +5,8 @@ StoreApplication.set do |app|
   app.environment = :development
 
   app.admin do |admin|
-    admin.email = 'admin@mail.com'
+    admin.email = 'sansashadev@gmail.com'
+    admin.pass  = 'tbjd cqbb sumz uzdz'
     admin.login = 'admin'
   end
 end
@@ -22,9 +23,11 @@ cart.add_item(RealItem.new({price:  270,weight: 300,name: 'car'}))
 cart.add_item(RealItem.new({price:  270,weight: 300,name: 'car'}))
 cart.add_item(RealItem.new({price:  270,weight: 300,name: 'bike'}))
 
-
 p cart.send :all_cars
 
+order = Order.new
+@items.each {|i| order.add_item i }
+order.place
 
 
 

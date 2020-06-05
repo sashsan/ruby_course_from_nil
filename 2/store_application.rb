@@ -1,4 +1,5 @@
 class StoreApplication
+
   class << self
     attr_accessor :name, :environment
 
@@ -15,6 +16,7 @@ class StoreApplication
         require_relative 'string'
         require_relative 'antique_item'
         require 'active_support/core_ext'
+        require 'pony'
       end
       @store ||= self
     end
@@ -22,17 +24,17 @@ class StoreApplication
     def admin(&block)
       @admin ||= Admin.new(&block)
     end
+  end
 
-    class Admin
-      class << self
-        attr_accessor :email, :login
+  class Admin
+    class << self
+      attr_accessor :email, :login, :pass
 
-        def new
-          unless @store
-            yield(self)
-          end
-          @store ||= self
+      def new
+        unless @store
+          yield(self)
         end
+        @store ||= self
       end
     end
   end
