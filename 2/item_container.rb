@@ -9,6 +9,8 @@ module ItemContainer
   end
 
   module InstanceMethods
+    attr_reader :items
+
     def add_item(*items)
       @items += items
     end
