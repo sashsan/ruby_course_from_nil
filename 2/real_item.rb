@@ -12,4 +12,8 @@ class RealItem < Item
       super
     end
   end
+
+  def to_s
+    super + ":#{self.weight}"
+  end
 end
